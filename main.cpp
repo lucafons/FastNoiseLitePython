@@ -4,6 +4,7 @@
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
 #include <iostream>
 #include <Python.h>
+#include <memory>
 #include <vector>
 #include "numpy/arrayobject.h"
 #include "structmember.h"
@@ -610,15 +611,15 @@ static PyMemberDef Noise_members[] = {
 static PyTypeObject NoiseType = {
         PyVarObject_HEAD_INIT(NULL, 0)
         .tp_name = "noise.Noise",
-        .tp_doc = PyDoc_STR("Noise object"),
         .tp_basicsize = sizeof(NoiseObject),
         .tp_itemsize = 0,
-        .tp_flags = Py_TPFLAGS_DEFAULT,
-        .tp_new = PyType_GenericNew,
-        .tp_init = (initproc)Noise_init,
-        .tp_methods = Noise_methods,
         .tp_dealloc = (destructor) Noise_dealloc,
+        .tp_flags = Py_TPFLAGS_DEFAULT,
+        .tp_doc = PyDoc_STR("Noise object"),
+        .tp_methods = Noise_methods,
         .tp_members = Noise_members,
+        .tp_init = (initproc)Noise_init,
+        .tp_new = PyType_GenericNew,
 };
 
 static PyModuleDef noise_module = {
