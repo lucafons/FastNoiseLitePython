@@ -609,9 +609,7 @@ static PyMemberDef Noise_members[] = {
 };
 
 static PyTypeObject NoiseType = {
-        NULL,
-        0,
-        0,
+        PyVarObject_HEAD_INIT(NULL, 0)
         "noise.Noise",
         sizeof(NoiseObject),
         0,
