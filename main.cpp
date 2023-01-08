@@ -366,7 +366,7 @@ PyObject* Noise_get_noise_2d(NoiseObject* self, PyObject* args, PyObject *kwargs
 
 PyObject* Noise_get_noise_3d(NoiseObject* self, PyObject* args, PyObject *kwargs) {
     int x, y, z;
-    double xStep = 1, yStep = 1, zStep;
+    double xStep = 1, yStep = 1, zStep = 1;
     PyObject* stepObj;
     static const char* kws[] = {(char*)"x", "y", "z", "step", NULL};
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "iii|O", const_cast<char **>(kws), &x, &y, &z, &stepObj)) {
