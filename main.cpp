@@ -609,17 +609,24 @@ static PyMemberDef Noise_members[] = {
 };
 
 static PyTypeObject NoiseType = {
-        PyVarObject_HEAD_INIT(NULL, 0)
-        .tp_name = "noise.Noise",
-        .tp_basicsize = sizeof(NoiseObject),
-        .tp_itemsize = 0,
-        .tp_dealloc = (destructor) Noise_dealloc,
-        .tp_flags = Py_TPFLAGS_DEFAULT,
-        .tp_doc = PyDoc_STR("Noise object"),
-        .tp_methods = Noise_methods,
-        .tp_members = Noise_members,
-        .tp_init = (initproc)Noise_init,
-        .tp_new = PyType_GenericNew,
+        NULL,
+        0,
+        0,
+        "noise.Noise",
+        sizeof(NoiseObject),
+        0,
+        (destructor) Noise_dealloc,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        Py_TPFLAGS_DEFAULT,
+        PyDoc_STR("Noise object"),
+        0,0,0,0,0,0,
+        Noise_methods,
+        Noise_members,
+        0,0,0,0,0,0,
+        (initproc)Noise_init,
+        0,
+        PyType_GenericNew,
+        0,0,0,0,0,0,0,0,0,0,0
 };
 
 static PyModuleDef noise_module = {
